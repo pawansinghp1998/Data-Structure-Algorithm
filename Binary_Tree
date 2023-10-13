@@ -1,0 +1,34 @@
+Q.1  You are given a BST(Binary Search Tree) with n number of nodes and value x. your task is to find the greatest value node of the BST which is smaller than or equal to x.
+Input:
+n = 7               2
+                     \
+                      81
+                    /     \
+                 42       87
+                   \       \
+                    66      90
+                   /
+                 45
+x = 87
+Output:
+87
+Explanation:
+87 is present in tree so floor will be 87.
+
+---> Solution
+class Solution {
+    public static int floor(Node root, int x) {
+       int ans = -1;
+        while(root != null){
+            if(root.data <= x){
+                ans = root.data;
+                root = root.right;
+            }
+            else if(root.data > x){
+                root = root.left;
+            }
+        }
+        return ans;
+    }
+}
+
